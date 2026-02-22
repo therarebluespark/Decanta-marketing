@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decanta - AI Sommelier Platform for Restaurants & Wine Lovers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --burgundy: #6B2737;
+            --gold: #B8936F;
+            --green: #4a7c59;
+            --cream: #FDFAF5;
+            --white: #FFFFFF;
+            --dark-text: #2C2C2C;
+            --light-text: #666666;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background: var(--white);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--burgundy);
+            letter-spacing: 3px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--burgundy);
+        }
+        
+        .nav-cta {
+            background: var(--burgundy);
+            color: var(--white) !important;
+            padding: 0.7rem 1.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        
+        .nav-cta:hover {
+            background: #8B3347;
+            color: var(--white) !important;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--cream) 0%, #FFF8F0 100%);
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(107, 39, 55, 0.03) 100%);
+            z-index: 0;
+        }
+        
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(107, 39, 55, 0.1);
+            color: var(--burgundy);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .hero h1 {
+            font-size: 64px;
+            color: var(--burgundy);
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+        
+        .hero p {
+            font-size: 22px;
+            color: var(--light-text);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            line-height: 1.7;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--burgundy);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background: #8B3347;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(107, 39, 55, 0.2);
+        }
+        
+        .btn-secondary {
+            background: var(--gold);
+            color: var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background: #9F7D5F;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(184, 147, 111, 0.2);
+        }
+        
+        /* Value Proposition Section */
+        .value-props {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 48px;
+            color: var(--burgundy);
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 20px;
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .dual-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .value-card {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+            border: 2px solid #E8E2D5;
+            border-radius: 12px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+        }
+        
+        .value-card.for-venues::before {
+            background: var(--burgundy);
+        }
+        
+        .value-card.for-lovers::before {
+            background: var(--gold);
+        }
+        
+        .card-badge {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .for-venues .card-badge {
+            background: rgba(107, 39, 55, 0.1);
+            color: var(--burgundy);
+        }
+        
+        .for-lovers .card-badge {
+            background: rgba(184, 147, 111, 0.15);
+            color: var(--gold);
+        }
+        
+        .value-card h3 {
+            font-size: 32px;
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
+        }
+        
+        .value-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .value-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .value-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .icon {
+            font-size: 24px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .for-venues .icon {
+            color: var(--burgundy);
+        }
+        
+        .for-lovers .icon {
+            color: var(--gold);
+        }
+        
+        .value-content h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+        
+        .value-content p {
+            color: var(--light-text);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .card-cta {
+            margin-top: 2rem;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--cream) 0%, #FFF8F0 100%);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .step {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--burgundy), #8B3347);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .step h4 {
+            font-size: 22px;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+        
+        .step p {
+            color: var(--light-text);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--burgundy);
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: var(--light-text);
+            font-weight: 500;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .testimonial {
+            background: var(--cream);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--gold);
+        }
+        
+        .testimonial-text {
+            font-size: 17px;
+            font-style: italic;
+            color: var(--dark-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--burgundy);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 20px;
+        }
+        
+        .author-info h5 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            font-size: 14px;
+            color: var(--light-text);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--burgundy) 0%, #8B3347 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 48px;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-white {
+            background: var(--white);
+            color: var(--burgundy);
+        }
+        
+        .btn-white:hover {
+            background: var(--cream);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: rgba(255,255,255,0.8);
+            padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand h3 {
+            font-size: 32px;
+            color: var(--white);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+        
+        .footer-brand p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-column h4 {
+            color: var(--white);
+            font-size: 18px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .dual-columns {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .testimonials {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-header h2 {
+                font-size: 36px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">DECANTA</div>
+            <ul class="nav-links">
+                <li><a href="#venues">For Restaurants</a></li>
+                <li><a href="#wine-lovers">For Wine Lovers</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact" class="nav-cta">Try Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">🍷 AI-Powered Wine Platform</div>
+            <h1>Premium Wine, Perfectly Shared</h1>
+            <p>Software that increases restaurant wine revenue 20-35% + app that gives diners access to premium wines by the glass through smart bottle coordination.</p>
+            <div class="hero-buttons">
+                <a href="#venues" class="btn btn-primary">For Restaurant Owners</a>
+                <a href="#wine-lovers" class="btn btn-secondary">For Wine Lovers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Propositions -->
+    <section class="value-props" id="value-props">
+        <div class="container">
+            <div class="section-header">
+                <h2>Two Sides, One Platform</h2>
+                <p>Connecting restaurants with wine lovers through AI intelligence and smart coordination</p>
+            </div>
+            
+            <div class="dual-columns">
+                <!-- For Venues -->
+                <div class="value-card for-venues" id="venues">
+                    <div class="card-badge">FOR RESTAURANTS & BARS</div>
+                    <h3>AI Sommelier Software</h3>
+                    <ul class="value-list">
+                        <li>
+                            <div class="icon">🤖</div>
+                            <div class="value-content">
+                                <h4>Increase Revenue 20-35%</h4>
+                                <p>AI recommendations drive customers to premium wines with better margins</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">📊</div>
+                            <div class="value-content">
+                                <h4>Zero Waste, Higher Margins</h4>
+                                <p>Bottle-sharing technology eliminates risk on expensive inventory</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">💡</div>
+                            <div class="value-content">
+                                <h4>Empower Your Staff</h4>
+                                <p>Every server gets AI-powered recommendations. $199/mo vs. $70K/year sommelier</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">⚡</div>
+                            <div class="value-content">
+                                <h4>5-Minute Setup</h4>
+                                <p>Photo upload your wine menu, staff gets instant access to AI intelligence</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="card-cta">
+                        <a href="#demo" class="btn btn-primary">Try The Venue Portal</a>
+                    </div>
+                </div>
+
+                <!-- For Wine Lovers -->
+                <div class="value-card for-lovers" id="wine-lovers">
+                    <div class="card-badge">FOR WINE ENTHUSIASTS</div>
+                    <h3>Premium Wine Discovery App</h3>
+                    <ul class="value-list">
+                        <li>
+                            <div class="icon">🍷</div>
+                            <div class="value-content">
+                                <h4>Access Premium Bottles</h4>
+                                <p>Try $180 wines for $48/glass through smart bottle sharing</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">🎯</div>
+                            <div class="value-content">
+                                <h4>Personalized AI Sommelier</h4>
+                                <p>Scan QR codes at restaurants for instant recommendations matched to your taste</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">👥</div>
+                            <div class="value-content">
+                                <h4>Social Mode (Optional)</h4>
+                                <p>Default anonymous sharing, or toggle on to meet fellow wine lovers</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">🎓</div>
+                            <div class="value-content">
+                                <h4>Learn & Discover</h4>
+                                <p>Build your wine knowledge through experience, track favorites, get educated</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="card-cta">
+                        <a href="#app" class="btn btn-secondary">Try The App</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Our Platform Works</h2>
+                <p>AI technology + wine preservation + smart coordination = everyone wins</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>AI Sommelier Platform</h4>
+                    <p>Restaurants upload wine menus. AI trained by Master Sommeliers provides instant recommendations to staff and customers via QR codes.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Smart Bottle Coordination</h4>
+                    <p>Wine lovers reserve glasses from premium bottles. When enough commit, bottle "tips" and is opened with preservation technology.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Everyone Benefits</h4>
+                    <p>Restaurants sell premium inventory with zero waste. Wine lovers access exceptional bottles by the glass. Quality preserved, margins improved.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trusted by Wine Lovers & Top Venues</h2>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Partner Restaurants</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1,000+</div>
+                    <div class="stat-label">Bottles Shared</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5,000+</div>
+                    <div class="stat-label">Wine Lovers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">30%</div>
+                    <div class="stat-label">Avg. Revenue Increase</div>
+                </div>
+            </div>
+            
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Decanta increased our wine revenue by 35% in the first quarter. The AI sommelier pays for itself in the first week. Our staff loves having instant expert knowledge."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h5>Michael Rodriguez</h5>
+                            <p>Owner, Bistro Moderne</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"I finally got to try a 2015 Barolo I'd been wanting to taste for years, but could never justify buying the full bottle. Shared it with three other wine lovers—amazing experience!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SK</div>
+                        <div class="author-info">
+                            <h5>Sarah Kim</h5>
+                            <p>Wine Enthusiast, San Francisco</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Wine Experience?</h2>
+            <p>Whether you're a restaurant owner or wine lover, we're here to help</p>
+            <div class="cta-buttons">
+                <a href="#demo" class="btn btn-white">Schedule Restaurant Demo</a>
+                <a href="#app" class="btn btn-outline">Download Wine Lover App</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>DECANTA</h3>
+                    <p>AI sommelier platform connecting restaurants with wine lovers through smart bottle sharing and personalized recommendations.</p>
+                    <p style="margin-top: 1rem; font-size: 13px; opacity: 0.7;">
+                        © 2026 Decanta. Wine Technology Platform.<br>
+                 
+                    </p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>For Restaurants</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#demo">Schedule Demo</a></li>
+                        <li><a href="#case-studies">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>For Wine Lovers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#app">Download App</a></li>
+                        <li><a href="#venues">Find Venues</a></li>
+                        <li><a href="#how">How It Works</a></li>
+                        <li><a href="#community">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#technology">Technology</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Decanta is a technology platform. We provide software to restaurants and a mobile app to wine enthusiasts.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

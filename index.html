@@ -623,6 +623,389 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--cream) 0%, #FFF8F0 100%);
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .pricing-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .pricing-card.featured {
+            border: 3px solid var(--burgundy);
+        }
+        
+        .pricing-card.venue {
+            border: 3px solid var(--gold);
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--burgundy);
+            color: var(--white);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .pricing-badge.gold {
+            background: var(--gold);
+        }
+        
+        .pricing-card h3 {
+            font-size: 24px;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .pricing-card .audience {
+            font-size: 14px;
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+        }
+        
+        .price {
+            margin-bottom: 1.5rem;
+        }
+        
+        .price .amount {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--burgundy);
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .price .period {
+            font-size: 16px;
+            color: var(--light-text);
+        }
+        
+        .price .savings {
+            display: block;
+            font-size: 13px;
+            color: var(--green);
+            font-weight: 600;
+            margin-top: 0.3rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features li {
+            padding: 0.6rem 0;
+            font-size: 14px;
+            color: var(--dark-text);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--green);
+            font-weight: 700;
+        }
+        
+        .pricing-features li.disabled {
+            color: var(--light-text);
+            text-decoration: line-through;
+        }
+        
+        .pricing-features li.disabled::before {
+            content: '✗';
+            color: #ccc;
+        }
+        
+        /* Feature Comparison */
+        .feature-comparison {
+            margin-top: 3rem;
+        }
+        
+        .feature-comparison h3 {
+            text-align: center;
+            font-size: 32px;
+            color: var(--burgundy);
+            margin-bottom: 2rem;
+        }
+        
+        .feature-category {
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .category-header {
+            background: var(--white);
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 16px;
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s;
+        }
+        
+        .category-header:hover {
+            background: var(--cream);
+        }
+        
+        .category-header .icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        
+        .category-header .toggle {
+            font-size: 20px;
+            color: var(--light-text);
+            transition: transform 0.3s;
+        }
+        
+        .feature-category.open .category-header .toggle {
+            transform: rotate(180deg);
+        }
+        
+        .category-content {
+            display: none;
+            padding: 0;
+        }
+        
+        .feature-category.open .category-content {
+            display: block;
+        }
+        
+        .feature-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .feature-table th,
+        .feature-table td {
+            padding: 0.8rem 1rem;
+            text-align: center;
+            font-size: 14px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .feature-table th {
+            background: #f8f8f8;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+        
+        .feature-table th:first-child,
+        .feature-table td:first-child {
+            text-align: left;
+            width: 40%;
+        }
+        
+        .feature-table td {
+            color: var(--dark-text);
+        }
+        
+        .feature-table .check {
+            color: var(--green);
+            font-weight: bold;
+        }
+        
+        .feature-table .cross {
+            color: #ccc;
+        }
+        
+        .feature-table .limit {
+            color: var(--gold);
+            font-size: 12px;
+        }
+        
+        /* Features Showcase */
+        .features-showcase {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .feature-item.reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .feature-image {
+            flex: 1;
+            max-width: 350px;
+        }
+        
+        .feature-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(107, 39, 55, 0.15);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        
+        .feature-content {
+            flex: 1;
+        }
+        
+        .feature-content .badge {
+            display: inline-block;
+            background: rgba(107, 39, 55, 0.1);
+            color: var(--burgundy);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .feature-content .badge.venue {
+            background: rgba(184, 147, 111, 0.15);
+            color: var(--gold);
+        }
+        
+        .feature-content h3 {
+            font-size: 28px;
+            color: var(--burgundy);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-content p {
+            color: var(--light-text);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-content ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-content ul li {
+            padding: 0.4rem 0;
+            color: var(--dark-text);
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .feature-content ul li::before {
+            content: '✓';
+            color: var(--green);
+            font-weight: 700;
+        }
+        
+        /* Full-width feature */
+        .feature-full {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            background: linear-gradient(135deg, var(--cream) 0%, #FFF8F0 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+        
+        .feature-full .feature-image {
+            max-width: 500px;
+        }
+        
+        /* Responsive Features */
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .feature-item,
+            .feature-item.reverse {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .feature-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .feature-full {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .feature-full .feature-image {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            
+            .feature-content ul {
+                display: inline-block;
+                text-align: left;
+            }
+        }
+        
+        /* Responsive Pricing */
+        @media (max-width: 1024px) {
+            .pricing-cards {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .feature-table th,
+            .feature-table td {
+                padding: 0.6rem 0.5rem;
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -633,6 +1016,8 @@
             <ul class="nav-links">
                 <li><a href="#venues">For Restaurants</a></li>
                 <li><a href="#wine-lovers">For Wine Lovers</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="https://app.decanta.ai" class="nav-cta">Try Now</a></li>
             </ul>
         </div>
@@ -757,6 +1142,104 @@
         </div>
     </section>
 
+    <!-- Features Showcase -->
+    <section class="features-showcase" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>See Decanta in Action</h2>
+                <p>Powerful features for wine lovers and venues alike</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Wine Discovery -->
+                <div class="feature-item">
+                    <div class="feature-image">
+                        <img src="images/discovery.png" alt="Wine Discovery">
+                    </div>
+                    <div class="feature-content">
+                        <span class="badge">For Wine Lovers</span>
+                        <h3>Wine Discovery</h3>
+                        <p>Browse thousands of wines with detailed tasting notes, ratings, and food pairings. Build your personal collection and track your favorites.</p>
+                        <ul>
+                            <li>Search by name, producer, or region</li>
+                            <li>Filter by style, price, and ratings</li>
+                            <li>Track your personal cellar</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- AI Sommelier -->
+                <div class="feature-item reverse">
+                    <div class="feature-image">
+                        <img src="images/ai_sommelier.png" alt="AI Sommelier">
+                    </div>
+                    <div class="feature-content">
+                        <span class="badge">AI Powered</span>
+                        <h3>AI Sommelier</h3>
+                        <p>Get expert wine recommendations trained by Master Sommeliers. Simply ask what pairs with your meal and receive personalized suggestions.</p>
+                        <ul>
+                            <li>Context-aware recommendations</li>
+                            <li>Voice input supported</li>
+                            <li>Learns your preferences</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Inventory Management -->
+                <div class="feature-item">
+                    <div class="feature-image">
+                        <img src="images/inventory.png" alt="Inventory Management">
+                    </div>
+                    <div class="feature-content">
+                        <span class="badge venue">For Venues</span>
+                        <h3>Inventory Management</h3>
+                        <p>Complete wine program management. Track inventory, set prices, manage multiple locations, and get analytics on what's selling.</p>
+                        <ul>
+                            <li>Scan invoices to auto-populate</li>
+                            <li>Set bottle & glass prices</li>
+                            <li>Track quantities in real-time</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Bottle Shares -->
+                <div class="feature-item reverse">
+                    <div class="feature-image">
+                        <img src="images/bottle_shares.png" alt="Bottle Sharing">
+                    </div>
+                    <div class="feature-content">
+                        <span class="badge">Social Feature</span>
+                        <h3>Bottle Sharing</h3>
+                        <p>Experience premium wines by the glass through smart coordination. Join bottle shares at participating venues and discover exceptional wines.</p>
+                        <ul>
+                            <li>Join or create bottle shares</li>
+                            <li>Access premium wines affordably</li>
+                            <li>Connect with fellow enthusiasts</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Digital Display - Full Width -->
+                <div class="feature-full">
+                    <div class="feature-image">
+                        <img src="images/digital_display.png" alt="Digital Wine Display">
+                    </div>
+                    <div class="feature-content">
+                        <span class="badge venue">For Venues</span>
+                        <h3>Digital Wine Display</h3>
+                        <p>Transform your wine presentation with beautiful digital menus. Display your wines by the glass with taste profiles, food pairings, and QR codes for instant access to AI sommelier recommendations.</p>
+                        <ul>
+                            <li>Stunning TV-ready displays</li>
+                            <li>Real-time inventory sync</li>
+                            <li>QR codes for guest scanning</li>
+                            <li>Taste profile visualizations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Social Proof -->
     <section class="social-proof">
         <div class="container">
@@ -809,6 +1292,389 @@
         </div>
     </section>
 
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Choose the plan that fits your needs. Upgrade or downgrade anytime.</p>
+            </div>
+            
+            <div class="pricing-cards">
+                <!-- Guest Free -->
+                <div class="pricing-card">
+                    <h3>Guest Free</h3>
+                    <p class="audience">For Wine Enthusiasts</p>
+                    <div class="price">
+                        <span class="amount">$0</span>
+                        <span class="period">/forever</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Browse global wine database</li>
+                        <li>Search & filter wines</li>
+                        <li>Food pairing recommendations</li>
+                        <li>Personal cellar (20 bottles)</li>
+                        <li>Rate & review wines</li>
+                        <li>Join & create bottle shares</li>
+                        <li class="disabled">AI Sommelier chat</li>
+                        <li class="disabled">Label & menu scanning</li>
+                    </ul>
+                    <a href="https://app.decanta.ai" class="btn btn-secondary">Get Started Free</a>
+                </div>
+                
+                <!-- Guest Premium -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3>Guest Premium</h3>
+                    <p class="audience">For Wine Enthusiasts</p>
+                    <div class="price">
+                        <span class="amount">TBD</span>
+                        <span class="period"></span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Everything in Free, plus:</li>
+                        <li>Unlimited cellar storage</li>
+                        <li>AI Sommelier chat</li>
+                        <li>Scan bottle labels (AI vision)</li>
+                        <li>Email invoice parsing</li>
+                        <li>Voice input & wine comparison</li>
+                        <li>Context-aware recommendations</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="https://app.decanta.ai" class="btn btn-primary">Start Premium</a>
+                </div>
+                
+                <!-- Venue Premium -->
+                <div class="pricing-card venue">
+                    <div class="pricing-badge gold">For Venues</div>
+                    <h3>Venue Premium</h3>
+                    <p class="audience">For Restaurants & Bars</p>
+                    <div class="price">
+                        <span class="amount">TBD</span>
+                        <span class="period"></span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Full inventory management</li>
+                        <li>AI Sommelier for staff & guests</li>
+                        <li>Scan wine lists & menus</li>
+                        <li>Email invoice parsing</li>
+                        <li>Create & manage bottle shares</li>
+                        <li>Orders dashboard</li>
+                        <li>Food menu management</li>
+                        <li>Digital wine display (TV)</li>
+                    </ul>
+                    <a href="https://app.decanta.ai" class="btn btn-primary">Start Free Trial</a>
+                </div>
+            </div>
+            
+            <!-- Feature Comparison -->
+            <div class="feature-comparison">
+                <h3>Detailed Feature Comparison</h3>
+                
+                <!-- Wine Discovery -->
+                <div class="feature-category open">
+                    <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
+                        <span><span class="icon">🍷</span> Wine Discovery & Database</span>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="category-content">
+                        <table class="feature-table">
+                            <tr>
+                                <th>Feature</th>
+                                <th>Guest Free</th>
+                                <th>Guest Premium</th>
+                                <th>Venue Premium</th>
+                            </tr>
+                            <tr>
+                                <td>Browse global wine database</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Search by name, producer, region</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Filter by price, type, style</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Wine details & drinking window</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Food pairing recommendations</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Personal Cellar -->
+                <div class="feature-category">
+                    <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
+                        <span><span class="icon">📦</span> Personal Cellar / Collection</span>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="category-content">
+                        <table class="feature-table">
+                            <tr>
+                                <th>Feature</th>
+                                <th>Guest Free</th>
+                                <th>Guest Premium</th>
+                                <th>Venue Premium</th>
+                            </tr>
+                            <tr>
+                                <td>Add wines to personal cellar</td>
+                                <td class="limit">20 max</td>
+                                <td class="check">✓ Unlimited</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Track quantities & prices</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Wishlist wines</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Rate & review wines</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Cellar analytics</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                                <td>—</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Scanning & Import -->
+                <div class="feature-category">
+                    <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
+                        <span><span class="icon">📷</span> Scanning & Import</span>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="category-content">
+                        <table class="feature-table">
+                            <tr>
+                                <th>Feature</th>
+                                <th>Guest Free</th>
+                                <th>Guest Premium</th>
+                                <th>Venue Premium</th>
+                            </tr>
+                            <tr>
+                                <td>Scan bottle labels (AI vision)</td>
+                                <td class="cross">✗</td>
+                                <td class="limit">5/session</td>
+                                <td class="limit">5/session</td>
+                            </tr>
+                            <tr>
+                                <td>Scan wine lists / menus</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Scan food dishes</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>CSV / Excel bulk import</td>
+                                <td class="cross">✗</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Email invoice parsing</td>
+                                <td class="cross">✗</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- AI Sommelier -->
+                <div class="feature-category">
+                    <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
+                        <span><span class="icon">🤖</span> AI Sommelier</span>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="category-content">
+                        <table class="feature-table">
+                            <tr>
+                                <th>Feature</th>
+                                <th>Guest Free</th>
+                                <th>Guest Premium</th>
+                                <th>Venue Premium</th>
+                            </tr>
+                            <tr>
+                                <td>AI sommelier chat</td>
+                                <td class="cross">✗</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Wine pairing recommendations</td>
+                                <td class="cross">✗</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Voice input (microphone)</td>
+                                <td class="cross">✗</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Compare wines side-by-side</td>
+                                <td class="cross">✗</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Context-aware recommendations</td>
+                                <td class="cross">✗</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Bottle Sharing -->
+                <div class="feature-category">
+                    <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
+                        <span><span class="icon">🍾</span> Bottle Sharing (Social)</span>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="category-content">
+                        <table class="feature-table">
+                            <tr>
+                                <th>Feature</th>
+                                <th>Guest Free</th>
+                                <th>Guest Premium</th>
+                                <th>Venue Premium</th>
+                            </tr>
+                            <tr>
+                                <td>Browse shared bottles at venue</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Join a shared bottle</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Create a shared bottle</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Schedule shares (Now / Later)</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Social mode (Open / Solo)</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                                <td class="check">✓</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Venue Management -->
+                <div class="feature-category">
+                    <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
+                        <span><span class="icon">🏪</span> Venue Management</span>
+                        <span class="toggle">▼</span>
+                    </div>
+                    <div class="category-content">
+                        <table class="feature-table">
+                            <tr>
+                                <th>Feature</th>
+                                <th>Guest Free</th>
+                                <th>Guest Premium</th>
+                                <th>Venue Premium</th>
+                            </tr>
+                            <tr>
+                                <td>Full wine inventory management</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Set bottle & glass prices</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Track cost & supplier</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Orders dashboard</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Food menu management</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Digital wine display (TV)</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Multi-venue management</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td class="check">✓</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
@@ -848,16 +1714,16 @@
                     <h4>For Wine Lovers</h4>
                     <ul class="footer-links">
                         <li><a href="https://app.decanta.ai">Download App</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
                         <li><a href="#venues">Find Venues</a></li>
                         <li><a href="#how">How It Works</a></li>
-                        <li><a href="#community">Community</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h4>Company</h4>
                     <ul class="footer-links">
-                        <li><a href="mailto:info@decanta.ai">Contact</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#4e272028210e2a2b2d2f203a2f602f27">Contact</a></li>
                         <li><a href="#careers">Careers</a></li>
                     </ul>
                 </div>
@@ -866,7 +1732,4 @@
             <div class="footer-bottom">
                 <p>Decanta is a technology platform. We provide software to restaurants and a mobile app to wine enthusiasts.</p>
             </div>
-        </div>
-    </footer>
-</body>
-</html>
+      
