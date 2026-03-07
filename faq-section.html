@@ -1,0 +1,103 @@
+<!--
+  ============================================================
+  DECANTA.AI — FAQ SECTION
+  Add this block just before your footer closing tag.
+  The FAQ content is already included as structured data in
+  the <head> replacement — this makes it visible on-page too,
+  which Google uses to generate rich snippet FAQs in search.
+  ============================================================
+-->
+
+<section id="faq" style="max-width: 860px; margin: 0 auto; padding: 60px 24px;">
+
+  <h2 style="text-align: center; font-size: 2rem; margin-bottom: 12px; color: #1a1a2e;">
+    Frequently Asked Questions
+  </h2>
+  <p style="text-align: center; color: #666; margin-bottom: 48px;">
+    Everything you need to know about Decanta.ai
+  </p>
+
+  <div class="faq-list">
+
+    <details class="faq-item" open>
+      <summary class="faq-question">What is Decanta.ai?</summary>
+      <div class="faq-answer">
+        <p>Decanta.ai is an AI sommelier platform for restaurants and wine enthusiasts. It provides expert wine pairing recommendations trained by Master Sommeliers, personal cellar management, bottle sharing technology, and a complete wine program management suite for restaurants and bars.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">How does the AI sommelier work?</summary>
+      <div class="faq-answer">
+        <p>Decanta's AI sommelier is trained on Master Sommelier knowledge and provides instant wine recommendations based on food, occasion, taste preferences, and your personal cellar. Guests can access it via QR code at participating venues or through the Decanta.ai app.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Is Decanta.ai free to use?</summary>
+      <div class="faq-answer">
+        <p>Yes. Decanta.ai offers a free tier for wine enthusiasts that includes browsing the wine database, cellar management for up to 20 bottles, bottle sharing, and food pairing recommendations. Premium plans for enthusiasts and restaurants are also available.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">How does bottle sharing work?</summary>
+      <div class="faq-answer">
+        <p>Decanta's smart bottle sharing lets wine lovers reserve glasses from premium bottles at participating restaurants. When enough people commit, the bottle is opened using wine preservation technology — giving access to exceptional wines by the glass without buying the whole bottle.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Can Decanta.ai help my restaurant increase wine revenue?</summary>
+      <div class="faq-answer">
+        <p>Yes. Restaurants using Decanta.ai have seen an average 30% increase in wine revenue. The platform provides AI sommelier service at every table via QR codes, smart bottle sharing to sell premium wines by the glass, inventory management, and a digital wine display.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">How do I add my wine collection to Decanta.ai?</summary>
+      <div class="faq-answer">
+        <p>You can add wines to your cellar by scanning bottle labels with your camera, emailing wine invoices for automatic parsing, importing from a CSV or Excel file, or searching the global wine database. Your entire cellar can be digitised in minutes.</p>
+      </div>
+    </details>
+
+  </div>
+
+</section>
+
+<!-- FAQ Styles — add to your main CSS file instead if preferred -->
+<style>
+  .faq-item {
+    border-bottom: 1px solid #e8e0f0;
+    padding: 4px 0;
+  }
+  .faq-question {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    padding: 18px 8px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after {
+    content: '+';
+    font-size: 1.4rem;
+    color: #8b2fc9;
+    font-weight: 300;
+    transition: transform 0.2s;
+  }
+  details[open] .faq-question::after {
+    content: '−';
+  }
+  .faq-answer {
+    padding: 0 8px 20px 8px;
+    color: #555;
+    line-height: 1.7;
+    font-size: 0.97rem;
+  }
+  .faq-answer p { margin: 0; }
+</style>
